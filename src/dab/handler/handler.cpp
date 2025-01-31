@@ -13,6 +13,6 @@ void DABHandler::init() {
 void DABHandler::destroy() {
     FUN_LOG();
     UN_RE_ENTER();
-    DABHandler::startTelemetry();
+    DABHandler::stopTelemetry();
 	dab_api_destroy();
 }

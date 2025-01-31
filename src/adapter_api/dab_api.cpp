@@ -1,4 +1,4 @@
-#include "dab/dab_api_app.h"
+#include "dab/dab_api.h"
 #include "utils/hi_log.h"
 
 bool dab_api_init() {

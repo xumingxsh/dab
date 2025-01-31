@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <unistd.h>
 
 using namespace std;
 
@@ -69,6 +70,13 @@ void DABHandler::launch(DABContext& context) {
         context.serverFail("launch applications failed in server");
 		return;
 	}
+	sleep(1);
+	string status = getStatus(appId.c_str());
+	if (status.empty()) {
+        context.serverFail("get applications status failed in server");
+		return;
+	}
+	context.response.append("state", status.c_str());
 	context.success();
 }
 
@@ -91,6 +99,13 @@ void DABHandler::launchByContent(DABContext& context) {
         context.serverFail("launch applications failed in server");
 		return;
 	}
+	sleep(1);
+	string status = getStatus(appId.c_str());
+	if (status.empty()) {
+        context.serverFail("get applications status failed in server");
+		return;
+	}
+	context.response.append("state", status.c_str());
 	context.success();
 }
 
@@ -108,6 +123,7 @@ void DABHandler::exitApp(DABContext& context) {
         context.serverFail("exit applications failed in server");
 		return;
 	}
+	sleep(1);
     string status = getStatus(appId.c_str());
 	if (status.empty()) {
         context.serverFail("get applications status failed in server");

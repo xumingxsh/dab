@@ -1,5 +1,4 @@
-#ifndef __NT_APP_HI_COLLECTION_H__
-#define __NT_APP_HI_COLLECTION_H__
+#pragma once
 
 #include <mutex>
 
@@ -14,5 +13,3 @@ class HiCollection {
         return collection.size();
     }
 };
-
-#endif // __NT_APP_HI_COLLECTION_H__

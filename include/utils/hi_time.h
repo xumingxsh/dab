@@ -1,5 +1,4 @@
-#ifndef __NT_APP_H_TIME_H__
-#define __NT_APP_H_TIME_H__
+#pragma once
 
 namespace dab {
 /**
@@ -9,5 +8,3 @@ namespace dab {
 long long currentMs();
 
 }
-
-#endif // __NT_APP_H_TIME_H__

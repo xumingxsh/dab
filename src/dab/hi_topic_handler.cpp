@@ -13,6 +13,7 @@ namespace {
     std::map<std::string, std::function<void(DABContext&)>> handleFunctions;
 
     void processTopic(const char* topic, const char* body, const char* response_topic, const char* correlation_data) {
+		FUN_LOG();
         DABLOG_INFO("processTopic, topic:%s, body:%s, response_topic:%s", topic, body, response_topic);
         DABContext context(topic, body, response_topic, correlation_data);
 
@@ -27,6 +28,7 @@ namespace {
             DABContext::publish(context);
             return;
         }
+        DABLOG_INFO("handle topic:%s", topic);
 
         it->second(context);
         DABContext::publish(context);

@@ -6,7 +6,7 @@ string dab_api_deviceId() {
     return "abcdefghikjh234234234";
 }
 string dab_api_manufacturer() {
-    return "Hisense";
+    return "DEVICE";
 }
 string dab_api_model() {
     return "72690";
@@ -15,7 +15,7 @@ string dab_api_serialNumber() {
     return "abcdefghikjh234234234";
 }
 string dab_api_chipset() {
-    return "novatek72690";
+    return "chipsetNo.";
 }
 string dab_api_firmwareVersion() {
     return "V0.0.0.6";

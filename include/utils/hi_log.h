@@ -1,5 +1,4 @@
-#ifndef __NT_APP_DAB_LOG_H__
-#define __NT_APP_DAB_LOG_H__
+#pragma once
 
 #include <string>
 #include <functional>
@@ -61,5 +60,3 @@ void on_assert_fail(const char* file, const char* function,  int line);
 		return; \
     } \
 	isEntered = true
-
-#endif // __NT_APP_DAB_LOG_H__

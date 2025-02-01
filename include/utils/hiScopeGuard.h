@@ -1,5 +1,4 @@
-#ifndef HI_SCOPE_GUARD
-#define HI_SCOPE_GUARD
+#pragma once
 
 #include <functional>
 namespace dab {
@@ -36,4 +35,3 @@ private:
 
 #define ON_SCOPE_EXIT(callback) dab::HiScopeGuard SCOPEGUARD_LINENAME(EXIT, __LINE__)(callback)
 #endif // ON_SCOPE_EXIT
-#endif // HI_SCOPE_GUARD

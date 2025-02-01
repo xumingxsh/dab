@@ -49,5 +49,13 @@ void DABHandler::keyPressByLongTime(DABContext& context) {
 }
 
 void DABHandler::capture(DABContext& context) {
-	DAB_NOT_IMPLEMENT(context);
+	string base64;;
+	if (!dab_api_catpureImage2png(base64)) {
+        context.serverFail("capture failed in server");
+        return;
+	}
+	stringstream oss;
+	oss<<"data:image/png;base64,"<<base64;
+	context.response.append("outputImage", oss.str().c_str());
+	context.success();
 }

@@ -9,7 +9,7 @@
 
 class DABResponse {
 public:
-    void append(const char* key, const char* value);
+    void append(const char* key, const std::string value);
     void append(const char* key, int value);
     void append(const char* key, float value);
     void append(const char* key, long long value);

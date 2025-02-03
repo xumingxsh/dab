@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void DABResponse::append(const char* key, const char* value) {
+void DABResponse::append(const char* key, const string value) {
     payload[key]=  value;
 }
 

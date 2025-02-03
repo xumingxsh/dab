@@ -4,8 +4,8 @@
 using namespace std;
 
 void DABHandler::discover(DABContext& context) {
-    context.response.append("ip",        DABProperties::device_ip.c_str());
-    context.response.append("deviceId",  DABProperties::device_id.c_str());
+    context.response.append("ip",        DABProperties::device_ip);
+    context.response.append("deviceId",  DABProperties::device_id);
     context.success();
 }
 

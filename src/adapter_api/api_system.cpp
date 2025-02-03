@@ -108,7 +108,7 @@ bool dab_api_getLanguage(std::string& language) {
 	language = "eu";
     return true;
 }
-bool dab_api_setLanguage(const char* language) {
+bool dab_api_setLanguage(const string& language) {
     FUN_LOG();
     return true;
 }
@@ -129,7 +129,7 @@ bool dab_api_getOutputResolution(DABOutputResolution& val) {
 	val.frequency = 60; 
     return true;
 }
-bool sdab_api_etOutputResolution(const DABOutputResolution val) {
+bool dab_api_setOutputResolution(const DABOutputResolution& val) {
     FUN_LOG();
     return true;
 }
@@ -152,6 +152,8 @@ bool dab_api_setMatchContentFrameRate(const DABMatchContentFrameRate& val) {
 
 bool dab_api_listHdrOutputModeOptions(std::vector<DABHdrOutputMode>& list) {
     FUN_LOG();
+	list.push_back(DABHdrOutputMode::AlwaysHdr);
+	list.push_back(DABHdrOutputMode::HdrOnPlayback);
     return true;
 }
 bool dab_api_getHdrOutputMode(DABHdrOutputMode& val) {
@@ -183,6 +185,7 @@ bool dab_api_listAudioOutputModeOptions(std::vector<DABAudioOutputMode>& list) {
     FUN_LOG();
 	list.push_back(DABAudioOutputMode::Stereo);
 	list.push_back(DABAudioOutputMode::MultichannelPcm);
+	list.push_back(DABAudioOutputMode::Auto);
     return true;
 }
 bool dab_api_getAudioOutputMode(DABAudioOutputMode& val) {
@@ -198,6 +201,7 @@ bool dab_api_listAudioOutputSourceOptions(std::vector<DABAudioOutputSource>& lis
     FUN_LOG();
 	list.push_back(DABAudioOutputSource::NativeSpeaker);
 	list.push_back(DABAudioOutputSource::Arc);
+	list.push_back(DABAudioOutputSource::HDMI);
     return true;
 }
 bool dab_api_getAudioOutputSource(DABAudioOutputSource& val) {
@@ -215,6 +219,7 @@ bool dab_api_listVideoInputSourceOptions(std::vector<DABVideoInputSource>& list)
 	list.push_back(DABVideoInputSource::HDMI1);
 	list.push_back(DABVideoInputSource::HDMI2);
 	list.push_back(DABVideoInputSource::Tuner);
+	list.push_back(DABVideoInputSource::Home);
     return true;
 }
 bool dab_api_getVideoInputSource(DABVideoInputSource& val) {

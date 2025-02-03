@@ -76,7 +76,7 @@ void DABHandler::launch(DABContext& context) {
         context.serverFail("get applications status failed in server");
 		return;
 	}
-	context.response.append("state", status.c_str());
+	context.response.append("state", status);
 	context.success();
 }
 
@@ -105,7 +105,7 @@ void DABHandler::launchByContent(DABContext& context) {
         context.serverFail("get applications status failed in server");
 		return;
 	}
-	context.response.append("state", status.c_str());
+	context.response.append("state", status);
 	context.success();
 }
 
@@ -129,7 +129,7 @@ void DABHandler::exitApp(DABContext& context) {
         context.serverFail("get applications status failed in server");
 		return;
 	}
-	context.response.append("state", status.c_str());
+	context.response.append("state", status);
 	context.success();
 }
 
@@ -144,6 +144,6 @@ void DABHandler::getAppStatus(DABContext& context) {
         context.serverFail("get applications status failed in server");
 		return;
 	}
-	context.response.append("state", status.c_str());
+	context.response.append("state", status);
 	context.success();
 }

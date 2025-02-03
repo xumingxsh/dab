@@ -16,7 +16,7 @@ public:
 public:
     bool is_ok() const;
     void success();
-    void clientFail(const char* out_log, const char* inner_log = nullptr);
+    void clientFail(const char* fmt, ...);
     void serverFail(const char* fmt, ...);
 public:
 	std::string toJson();

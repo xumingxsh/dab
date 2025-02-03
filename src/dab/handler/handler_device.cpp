@@ -54,7 +54,7 @@ namespace {
             context.serverFail("get device information failed in server, can't get " #attr); \
             return; \
         } \
-        context.response.append(#attr, attr_value.c_str()); \
+        context.response.append(#attr, attr_value); \
     } while (0)
 
 void DABHandler::getDeviceInfo(DABContext& context) {
@@ -84,7 +84,7 @@ void DABHandler::getDeviceInfo(DABContext& context) {
         context.serverFail("get device information failed in server, can't displayType");
 		return;
 	}
-	context.response.append("displayType", getDisplayType(type).c_str());
+	context.response.append("displayType", getDisplayType(type));
 	
 	map<DABNetworkType, DABNetworkInfo> nets;
 	if (!dab_api_getNetworks(nets)) {

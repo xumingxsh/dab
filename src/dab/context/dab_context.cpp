@@ -42,8 +42,14 @@ bool DABContext::is_ok() const {
 void DABContext::success() {
 }
 
-void DABContext::clientFail(const char* out_log, const char* inner_log) {
-    status.clientFail(out_log, inner_log);
+void DABContext::clientFail(const char* fmt, ...) {
+    char chArr[MAX_BUF_SIZE] = {0};
+    va_list arguments;
+    va_start(arguments, fmt);
+    vsnprintf(chArr, MAX_BUF_SIZE, fmt, arguments);
+    va_end(arguments);
+    status.clientFail(chArr);
+    DABLOG_ERROR(chArr);
 }
 void DABContext::serverFail(const char* fmt, ...) {
     char chArr[MAX_BUF_SIZE] = {0};
@@ -60,7 +66,7 @@ string DABContext::toJson() {
     response.append("status", status.getStatus());
     if (!is_ok()) {
         if (!status.out_log.empty()) {
-            response.append("error", status.out_log.c_str());
+            response.append("error", status.out_log);
         }
     }
     Json::FastWriter fastWriter;

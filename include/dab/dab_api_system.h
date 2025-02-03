@@ -127,11 +127,11 @@ extern "C" {
 
     bool dab_api_listLanguageOptions(std::vector<std::string>& list);
     bool dab_api_getLanguage(std::string& language);
-    bool dab_api_setLanguage(const char* language);
+    bool dab_api_setLanguage(const std::string& language);
     
     bool dab_api_listOutputResolutionOptions(std::vector<DABOutputResolution>& list);
     bool dab_api_getOutputResolution(DABOutputResolution& val);
-    bool dab_api_setOutputResolution(const DABOutputResolution val);
+    bool dab_api_setOutputResolution(const DABOutputResolution& val);
 
     bool dab_api_listMatchContentFrameRateOptions(std::vector<DABMatchContentFrameRate>& list);
     bool dab_api_getMatchContentFrameRate(DABMatchContentFrameRate& val);

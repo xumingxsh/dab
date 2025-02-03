@@ -56,6 +56,6 @@ void DABHandler::capture(DABContext& context) {
 	}
 	stringstream oss;
 	oss<<"data:image/png;base64,"<<base64;
-	context.response.append("outputImage", oss.str().c_str());
+	context.response.append("outputImage", oss.str());
 	context.success();
 }

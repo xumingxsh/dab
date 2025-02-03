@@ -1,3 +1,5 @@
+#include "dab_service.h"
+
 #include <string>
 #include <vector>
 #include <map>

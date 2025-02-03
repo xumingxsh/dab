@@ -20,7 +20,7 @@ static void init_attributies() {
     DABProperties::mqtt_client_id       = DABProperties::device_id;
 }
 
-int WinMain() {
+int main() {
     setAppAttributes([]{
         init_attributies();
     });

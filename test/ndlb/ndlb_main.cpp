@@ -7,14 +7,6 @@
 
 using namespace std;
 
-class TestEnvironment : public ::testing::Environment {
-public:
-    void SetUp() override {
-    }
-    void TearDown() override {
-    }
-};
-
 namespace {	
 	void publish(const char* topic, const char* body) {
 		DABLOG_ALWAYS("topic:%s,body:%s", topic, body);
@@ -39,13 +31,9 @@ namespace {
 }
 
 int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    ::testing::AddGlobalTestEnvironment(new TestEnvironment);
-    int ret = 0;
-    
+    ::testing::InitGoogleTest(&argc, argv);    
     dabInit();
-
-    ret = RUN_ALL_TESTS();
+    int ret = RUN_ALL_TESTS();
     dabDestory();
     return ret;
 }

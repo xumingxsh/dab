@@ -1,5 +1,6 @@
 PROJECT ("dab service")
 set(CMAKE_CXX_FLAGS -std=c++14)
+set(root_path ${CMAKE_CURRENT_SOURCE_DIR})
 
 set(SERVICE_SRC_LIST 
 	src/service/dab_service.cpp
@@ -22,8 +23,10 @@ set(ALL_SRC_LIST
 	${MQTT_SRC_LIST}
 	)
 
-include_directories(include)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY src/out)
+include_directories(${root_path}/include)
+link_directories(${root_path}/libs)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY out)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY out)
 add_library(dab SHARED ${ALL_SRC_LIST})
 
 file(GLOB NDLB_SRC test/ndlb/*.cpp)
@@ -41,3 +44,6 @@ set(TEST_SRC_LIST
 
 add_executable(ndlb ${TEST_SRC_LIST})
 target_link_libraries(ndlb PRIVATE gtest)
+
+add_executable(dab_demo ${ALL_SRC_LIST} src/demo/dab_demo.cpp)
+target_link_libraries(dab_demo PRIVATE mosquitto dab)
